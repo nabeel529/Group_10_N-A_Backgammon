@@ -1,7 +1,8 @@
 public class UserInput {
     private enum Commands {
         Roll,
-        Quit;
+        Quit,
+        Over;
     }
 
     private Commands command;
@@ -18,13 +19,15 @@ public class UserInput {
         }
     }
 
-    public Boolean isQuit()
-    {
-        command == Commands.Quit;
+    public Boolean isQuit() {
+        return command == Commands.Quit;
     }
 
-    public Boolean isRoll()
-    {
-        command == Commands.Roll;
+    public Boolean isRoll() {
+        return command == Commands.Roll;
+    }
+
+    public Boolean isOver() {
+        return command == Commands.Over;
     }
 }
