@@ -19,7 +19,6 @@ public class Game {
         System.out.println("Welcome " + player1 + " & " + player2);
         System.out.print("\n");
 
-        UserInput commandInput2 = new UserInput(test);
         do {
             System.out.print("\n");
             System.out.println("Enter your command:");
@@ -33,6 +32,6 @@ public class Game {
                 System.out.println("Goodbye !!!");
                 System.exit(0);
             }
-        } while (!commandInput2.isOver());
+        } while (!false);
     }
 }
