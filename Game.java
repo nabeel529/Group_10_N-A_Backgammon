@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.plaf.synth.SynthTextAreaUI;
-
 public class Game {
     Scanner in;
 
