@@ -1,37 +1,21 @@
-public enum Colour {
-    Green,
-    Black;
+public class Colour {
 
     private static final String GREEN = "\033[0;32m";
     private static final String BLACK = "\033[0;35m";
-    private static final String RESET = "\033[om";
+    private static final String RESET = "\033[0m";
+    private String colour;
 
-    public String printColour(Colour c, Boolean s) {
-        String symbol;
-
-        if (s) {
-            switch (c) {
-                case Green:
-                    symbol = GREEN;
-                    break;
-
-                case Black:
-                    symbol = BLACK;
-                    break;
-
-                default:
-                    symbol = RESET;
-                    break;
-            }
+    public Colour(char c) {
+        if (c == 'G') {
+            this.colour = GREEN;
+        } else if (c == 'B') {
+            this.colour = BLACK;
         } else {
-            symbol = "uh oh";
+            this.colour = RESET;
         }
-
-        return symbol;
     }
 
-    public String resetColour() {
-        String symbol = RESET;
-        return symbol;
+    public String printColour() {
+        return this.colour;
     }
 }
