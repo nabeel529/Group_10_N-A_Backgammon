@@ -19,9 +19,10 @@ public class Dice {
     }
 
     public void printValue() {
-        System.out.printf("\n");
-        System.out.print(value[0]);
-        System.out.printf("\n");
-        System.out.print(value[1]);
+        System.out.print("\n");
+        System.out.println("|-- Dice --|");
+        System.out.println("|    " + value[0] + "     |");
+        System.out.println("|    " + value[1] + "     |");
+        System.out.println("__________-");
     }
 }
