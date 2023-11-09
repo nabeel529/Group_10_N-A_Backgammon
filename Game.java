@@ -6,7 +6,6 @@ public class Game {
     public Game() {
         in = new Scanner(System.in);
         Dice dice = new Dice();
-        String test = "penis";
 
         System.out.printf("Enter a name for player 1:");
         System.out.print("\n");
@@ -32,6 +31,7 @@ public class Game {
                 System.out.println("Goodbye !!!");
                 System.exit(0);
             }
+
         } while (!false);
     }
 }
