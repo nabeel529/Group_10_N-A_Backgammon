@@ -11,13 +11,14 @@ public class Game {
         System.out.printf("Enter a name for player 1:");
         System.out.print("\n");
         String player1 = in.nextLine();
+        System.out.print("\n");
 
         System.out.print("Enter a name for player 2:");
         System.out.print("\n");
         String player2 = in.nextLine();
 
-        System.out.println("Welcome " + player1 + " & " + player2);
         System.out.print("\n");
+        System.out.println("Welcome " + player1 + " & " + player2);
 
         do {
             board.printBoard();

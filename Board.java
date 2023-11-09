@@ -12,6 +12,7 @@ public class Board {
         }
 
         public void printBoard() {
+                System.out.print("\n");
                 System.out.println("|---------------------------------------------------------------------|");
 
                 System.out.println(

@@ -23,6 +23,5 @@ public class Dice {
         System.out.println("|-- Dice --|");
         System.out.println("|    " + value[0] + "     |");
         System.out.println("|    " + value[1] + "     |");
-        System.out.println("__________-");
     }
 }
