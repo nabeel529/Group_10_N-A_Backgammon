@@ -35,6 +35,6 @@ public class Dice {
     }
 
     public void printVal() {
-        System.out.print(val);
+        System.out.println(val);
     }
 }
