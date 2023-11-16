@@ -31,6 +31,10 @@ public class Game {
         System.out.println("Whoever rolls the higher number gets the first move!!!");
         formatLine();
 
+        // THIS COULD BE CHANGED
+        //
+        //
+        //
         System.out.println(player1.get_username() + " will roll first.");
         input = in.nextLine();
         commandInput.set_Input(input);
@@ -91,6 +95,12 @@ public class Game {
         } else {
             System.out.println(player2.get_username() + "will go first!");
         }
+        //
+        //
+        //
+        //
+        //
+        //
 
         do {
             // board.printBoard();
