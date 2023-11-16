@@ -44,8 +44,11 @@ public class UserInput {
     }
 
     public void print_start_commands() {
+        System.out.print("\n");
+        System.out.println("Here are your available commands at start");
         System.out.println("List of commands: To roll - R/r");
         System.out.println("                  To quit - Q/q");
+        System.out.println("                  For help - H/h");
     }
 
     public void print_commands() {
