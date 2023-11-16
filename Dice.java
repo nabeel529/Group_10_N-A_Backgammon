@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class Dice {
     private Random rand;
+    private int val;
     private int value[];
 
     Dice() {
@@ -23,5 +24,17 @@ public class Dice {
         System.out.println("|-- Dice --|");
         System.out.println("|    " + value[0] + "     |");
         System.out.println("|    " + value[1] + "     |");
+    }
+
+    public void roll_one_die() {
+        val = rand.nextInt(1, 7);
+    }
+
+    public int getVal() {
+        return this.val;
+    }
+
+    public void printVal() {
+        System.out.print(val);
     }
 }
