@@ -15,7 +15,7 @@ public class UserInput {
         } else if (input.equals("R")) {
             command = Commands.Roll;
         } else {
-            System.out.print("How did we get here");
+            System.out.print("\nI assume youre testing\n\n");
         }
     }
 
