@@ -22,7 +22,6 @@ public class Game {
 
         System.out.print("\n");
         System.out.println("Welcome " + player1.get_username() + " & " + player2.get_username());
-        System.out.println("Here are your available commands at start");
         commandInput.print_start_commands();
         System.out.println("If you wish to see the list of commands at any time type 'H/h'.");
         formatLine();
@@ -31,76 +30,7 @@ public class Game {
         System.out.println("Whoever rolls the higher number gets the first move!!!");
         formatLine();
 
-        // THIS COULD BE CHANGED
-        //
-        //
-        //
-        System.out.println(player1.get_username() + " will roll first.");
-        input = in.nextLine();
-        commandInput.set_Input(input);
-
-        if (!commandInput.isValid_start(input)) {
-            do {
-                formatLine();
-                commandInput.print_start_commands();
-                input = in.nextLine();
-                commandInput.set_Input(input);
-            } while (!commandInput.isValid_start(input));
-        }
-
-        do {
-            if (commandInput.isRoll()) {
-                dice.roll_one_die();
-                player1.set_dice_value(dice.getVal());
-                System.out.println(player1.get_username() + "has rolled a ");
-                dice.printVal();
-            } else if (commandInput.isHelp()) {
-                commandInput.print_commands();
-            } else // Users have decided to quit.
-            {
-                System.out.println("Goodbye !!!");
-                System.exit(0);
-            }
-        } while (player1.get_dice_value() == 0);
-
-        System.out.println(player2.get_username() + " will now roll.");
-        input = in.nextLine();
-        commandInput.set_Input(input);
-
-        if (!commandInput.isValid_start(input)) {
-            do {
-                formatLine();
-                commandInput.print_start_commands();
-                input = in.nextLine();
-                commandInput.set_Input(input);
-            } while (!commandInput.isValid_start(input));
-        }
-
-        do {
-            if (commandInput.isRoll()) {
-                dice.roll_one_die();
-                player2.set_dice_value(dice.getVal());
-                System.out.println(player2.get_username() + "has rolled a ");
-                dice.printVal();
-            } else if (commandInput.isHelp()) {
-                commandInput.print_commands();
-            } else /* Users have decided to quit. */ {
-                System.out.println("Goodbye !!!");
-                System.exit(0);
-            }
-        } while (player2.get_dice_value() == 0);
-
-        if (player1.get_dice_value() > player2.get_dice_value()) {
-            System.out.println(player1.get_username() + "will go first!");
-        } else {
-            System.out.println(player2.get_username() + "will go first!");
-        }
-        //
-        //
-        //
-        //
-        //
-        //
+        who_goes_first();
 
         do {
             // board.printBoard();
@@ -122,5 +52,81 @@ public class Game {
 
     private void formatLine() {
         System.out.print("\n");
+    }
+
+    private void who_goes_first() {
+        System.out.println(player1.get_username() + " will roll first.");
+        input = in.nextLine();
+        commandInput.set_Input(input);
+
+        if (!commandInput.isValid_start(input)) {
+            do {
+                formatLine();
+                System.out.println("Invalid input.");
+                commandInput.print_start_commands();
+                input = in.nextLine();
+                commandInput.set_Input(input);
+            } while (!commandInput.isValid_start(input));
+        }
+
+        do {
+            if (commandInput.isRoll()) {
+                dice.roll_one_die();
+                player1.set_dice_value(dice.getVal());
+                formatLine();
+                System.out.println(player1.get_username() + " has rolled a ");
+                dice.printVal();
+            } else if (commandInput.isHelp()) {
+                commandInput.print_start_commands();
+                input = in.nextLine();
+                commandInput.set_Input(input);
+            } else /* Users have decided to quit. */ {
+                System.out.println("Goodbye !!!");
+                System.exit(0);
+            }
+        } while (player1.get_dice_value() == 0);
+
+        formatLine();
+        System.out.println(player2.get_username() + " will now roll.");
+        input = in.nextLine();
+        commandInput.set_Input(input);
+
+        if (!commandInput.isValid_start(input)) {
+            do {
+                formatLine();
+                commandInput.print_start_commands();
+                input = in.nextLine();
+                commandInput.set_Input(input);
+            } while (!commandInput.isValid_start(input));
+        }
+
+        do {
+            if (commandInput.isRoll()) {
+                dice.roll_one_die();
+                player2.set_dice_value(dice.getVal());
+                formatLine();
+                System.out.println(player2.get_username() + " has rolled a ");
+                dice.printVal();
+            } else if (commandInput.isHelp()) {
+                commandInput.print_start_commands();
+                input = in.nextLine();
+                commandInput.set_Input(input);
+            } else /* Users have decided to quit. */ {
+                System.out.println("Goodbye !!!");
+                System.exit(0);
+            }
+        } while (player2.get_dice_value() == 0);
+
+        if (player1.get_dice_value() > player2.get_dice_value()) {
+            formatLine();
+            System.out.println(player1.get_username() + " will make the first move!");
+            player1.set_rank(1);
+            player2.set_rank(2);
+        } else {
+            formatLine();
+            System.out.println(player2.get_username() + " will make the first move!");
+            player2.set_rank(1);
+            player1.set_rank(2);
+        }
     }
 }
