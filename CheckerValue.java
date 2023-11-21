@@ -1,5 +1,4 @@
-public enum CheckerValue
-{
+public enum CheckerValue {
     G(Colours.GREEN + "O" + Colours.RESET, Colours.GREEN, "GREEN"),
     B(Colours.BLACK + "X" + Colours.RESET, Colours.BLACK, "BLACK");
 
@@ -7,24 +6,21 @@ public enum CheckerValue
     private String sign;
     private String show;
 
-    CheckerValue(String sign, String show,String colour)
-    {
+    CheckerValue(String sign, String show, String colour) {
         this.colour = colour;
         this.show = show;
         this.sign = sign;
     }
 
-    public String toString()
-    {
+    public String toString() {
         return sign;
     }
-    public String retrieveShow()
-    {
+
+    public String retrieveShow() {
         return show;
     }
 
-    public String retrieveColour()
-    {
+    public String retrieveColour() {
         return colour;
     }
 }
