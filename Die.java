@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Die {
-    private Show show;
+    private View view;
     private int[] dieNum;
     private int[] moves;
     private int numMoves;
@@ -11,7 +11,7 @@ public class Die {
         this.dieNum = new int[2];
         random = new Random();
         this.moves = new int[2];
-        show = new Show();
+        view = new View();
 
         numMoves = 2;
         dieNum[1] = random.nextInt(1, 7);
@@ -85,7 +85,7 @@ public class Die {
             moves[0] = 4;
         }
 
-        show.revealDie(dieNumOne, dieNumTwo);
+        view.showDice(dieNumOne, dieNumTwo);
     }
 
     public void minusMoves(int num) {
