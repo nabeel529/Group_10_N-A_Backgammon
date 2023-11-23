@@ -5,7 +5,7 @@ public class Game {
     Dice dice = new Dice();
     Board board = new Board();
     Player player1 = new Player(), player2 = new Player();
-    UserInput commandInput = new UserInput();
+    UserInput actionInput = new UserInput();
     String input;
 
     public Game() {
@@ -22,8 +22,8 @@ public class Game {
 
         System.out.print("\n");
         System.out.println("Welcome " + player1.get_username() + " & " + player2.get_username());
-        commandInput.print_start_commands();
-        System.out.println("If you wish to see the list of commands at any time type 'H/h'.");
+        actionInput.print_start_actions();
+        System.out.println("If you wish to see the list of actions at any time type 'H/h'.");
         formatLine();
 
         System.out.println("To begin both players will roll a dice.");
@@ -36,18 +36,18 @@ public class Game {
             // board.printBoard();
             dice.printValue();
             formatLine();
-            System.out.println("Enter your command:");
+            System.out.println("Enter your action:");
             input = in.nextLine();
-            commandInput.set_Input(input);
+            actionInput.set_Input(input);
 
-            if (commandInput.isRoll()) {
+            if (actionInput.isRoll()) {
                 dice.roll();
-            } else if (commandInput.isQuit()) {
+            } else if (actionInput.isQuit()) {
                 System.out.println("Goodbye !!!");
                 System.exit(0);
             }
 
-        } while (!commandInput.isQuit());
+        } while (!actionInput.isQuit());
     }
 
     private void formatLine() {
@@ -57,29 +57,29 @@ public class Game {
     private void who_goes_first() {
         System.out.println(player1.get_username() + " will roll first.");
         input = in.nextLine();
-        commandInput.set_Input(input);
+        actionInput.set_Input(input);
 
-        if (!commandInput.isValid_start(input)) {
+        if (!actionInput.isValid_start(input)) {
             do {
                 formatLine();
                 System.out.println("Invalid input.");
-                commandInput.print_start_commands();
+                actionInput.print_start_actions();
                 input = in.nextLine();
-                commandInput.set_Input(input);
-            } while (!commandInput.isValid_start(input));
+                actionInput.set_Input(input);
+            } while (!actionInput.isValid_start(input));
         }
 
         do {
-            if (commandInput.isRoll()) {
+            if (actionInput.isRoll()) {
                 dice.roll_one_die();
                 player1.set_dice_value(dice.getVal());
                 formatLine();
                 System.out.println(player1.get_username() + " has rolled a ");
                 dice.printVal();
-            } else if (commandInput.isHelp()) {
-                commandInput.print_start_commands();
+            } else if (actionInput.isHelp()) {
+                actionInput.print_start_actions();
                 input = in.nextLine();
-                commandInput.set_Input(input);
+                actionInput.set_Input(input);
             } else /* Users have decided to quit. */ {
                 System.out.println("Goodbye !!!");
                 System.exit(0);
@@ -89,28 +89,28 @@ public class Game {
         formatLine();
         System.out.println(player2.get_username() + " will now roll.");
         input = in.nextLine();
-        commandInput.set_Input(input);
+        actionInput.set_Input(input);
 
-        if (!commandInput.isValid_start(input)) {
+        if (!actionInput.isValid_start(input)) {
             do {
                 formatLine();
-                commandInput.print_start_commands();
+                actionInput.print_start_actions();
                 input = in.nextLine();
-                commandInput.set_Input(input);
-            } while (!commandInput.isValid_start(input));
+                actionInput.set_Input(input);
+            } while (!actionInput.isValid_start(input));
         }
 
         do {
-            if (commandInput.isRoll()) {
+            if (actionInput.isRoll()) {
                 dice.roll_one_die();
                 player2.set_dice_value(dice.getVal());
                 formatLine();
                 System.out.println(player2.get_username() + " has rolled a ");
                 dice.printVal();
-            } else if (commandInput.isHelp()) {
-                commandInput.print_start_commands();
+            } else if (actionInput.isHelp()) {
+                actionInput.print_start_actions();
                 input = in.nextLine();
-                commandInput.set_Input(input);
+                actionInput.set_Input(input);
             } else /* Users have decided to quit. */ {
                 System.out.println("Goodbye !!!");
                 System.exit(0);
