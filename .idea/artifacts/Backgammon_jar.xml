@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Backgammon:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Backgammon_jar</output-path>
+    <root id="archive" name="Backgammon.jar">
+      <element id="module-output" name="Backgammon" />
+    </root>
+  </artifact>
+</component>
