@@ -7,7 +7,8 @@ Description: Manages the gameplay flow of the backgammon game.
 public class Backgammon {
 
 	public static void main(String... args) {
-		// Start the game by creating an instance of Backgammon and invoking Backgammon_play
+		// Start the game by creating an instance of Backgammon and invoking
+		// Backgammon_play
 		Backgammon game = new Backgammon();
 		game.Backgammon_play();
 	}
@@ -98,7 +99,8 @@ public class Backgammon {
 							show.showPiece(table);
 							show.show_Possible_Moves(table);
 							isMatchFinished = false;
-						} else if (actions.letsThrow() || actions.letsMove() || actions.letsYield() || actions.letsDisplayPip() || actions.letsDieNum() || actions.letsDisplayMoves()) {
+						} else if (actions.letsThrow() || actions.letsMove() || actions.letsYield()
+								|| actions.letsDisplayPip() || actions.letsDieNum() || actions.letsDisplayMoves()) {
 							show.print_Not_Valid();
 						} else if (actions.letsHint()) {
 							show.show_all_Hints();
@@ -124,7 +126,9 @@ public class Backgammon {
 						show.show_Possible_Moves(table);
 						Begin++;
 						actionFinished = true;
-					} else if (actions.letsThrow() || actions.letsMove() || actions.letsYield() || actions.letsDisplayPip() || actions.letsDieNum() || actions.letsSkip() || actions.letsDisplayMoves()) {
+					} else if (actions.letsThrow() || actions.letsMove() || actions.letsYield()
+							|| actions.letsDisplayPip() || actions.letsDieNum() || actions.letsSkip()
+							|| actions.letsDisplayMoves()) {
 						show.print_Not_Valid();
 					} else if (actions.letsHint()) {
 						show.show_all_Hints();
@@ -133,7 +137,8 @@ public class Backgammon {
 				}
 			} while (!actionFinished); // Continue loop until an action is finished
 
-		} while (!actions.letsExit() && !table.EntireMatchFinito()); // Continue game until exit or entire match finished
+		} while (!actions.letsExit() && !table.EntireMatchFinito()); // Continue game until exit or entire match
+																		// finished
 
 		// Game ending messages based on match completion
 		if (table.EntireMatchFinito()) {
