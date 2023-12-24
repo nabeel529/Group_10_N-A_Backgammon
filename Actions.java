@@ -1,5 +1,10 @@
-public class Actions
-{
+/*
+Group 10 | Nabeel Olusekun - nabeel529 | Alex Brady - alexb-25
+Class: Actions
+Description: Handles user actions and translates input into game actions for the backgammon game.
+*/
+
+public class Actions {
     private String goTo;
     private String comeFrom;
     private TypeAction typeAction;
@@ -8,8 +13,10 @@ public class Actions
     private String[] die;
     private static String[] legit = new String[70];
 
+    // Constructor to interpret user input and determine the type of action
     Actions(String in)
     {
+        // Initialization and parsing of user input
         this.die = new String[2];
         this.dieNum = new int[2];
         input = in.toUpperCase().trim();
@@ -20,21 +27,21 @@ public class Actions
         }
         else if(in.matches("([1-9]|0[1-9]|[1-9][0-9])") && legit[Integer.parseInt(in) - 1] != null)
         {
-            goTo = legit[Integer.parseInt(in)-1].substring(2,4);
             typeAction = TypeAction.MOVE;
+            goTo = legit[Integer.parseInt(in)-1].substring(2,4);
             comeFrom = legit[Integer.parseInt(in)-1].substring(0,2);
         }
         else if(input.matches("(0[1-9]|1[0-9]|2[0-4]|B[1-2])(0[1-9]|1[0-9]|2[0-4]|E[1-2])"))
         {
-            goTo = input.substring(2,4);
             typeAction = TypeAction.MOVE;
+            goTo = input.substring(2,4);
             comeFrom= input.substring(0,2);
         }
         else if(input.matches("R[1-6][1-6]"))
         {
+            typeAction = TypeAction.DIENUM;
             die[1] = input.substring(2,3);
             die[0] = input.substring(1,2);
-            typeAction = TypeAction.DIENUM;
             dieNum[1]= Integer.parseInt(die[1]);
             dieNum[0]= Integer.parseInt(die[0]);
         }
@@ -50,7 +57,7 @@ public class Actions
         {
             typeAction = TypeAction.HINT;
         }
-        else if(input.equals("S"))
+        else if(input.equals("SK"))
         {
             typeAction = TypeAction.SKIP;
         }
@@ -58,7 +65,7 @@ public class Actions
         {
             typeAction = TypeAction.DISPLAYMOVES;
         }
-        else if(input.equals("ST"))
+        else if(input.equals("S"))
         {
             typeAction = TypeAction.START;
         }
@@ -175,7 +182,7 @@ public class Actions
                 input.equals("H") ||
                 input.equals("S") ||
                 input.equals("DM") ||
-                input.equals("ST") ||
+                input.equals("SK") ||
                 input.matches("R[1-6][1-6]") ||
                 input.matches("(0[1-9]|1[0-9]|2[0-4]|B[1-2])(0[1-9]|1[0-9]|2[0-4]|E[1-2])")) {
             return true;
@@ -251,6 +258,5 @@ public class Actions
         else
             return endToVal(goTo);
     }
-
 
 }
